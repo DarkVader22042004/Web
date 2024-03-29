@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    background-color: rgb(141, 255, 191);
+}
+
+.q1 {
+    margin-bottom: 300px;
+}
+
+label:hover {
+    margin-top: 20px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-size: 22.5px;
+
+}
+
+#submit {
+    margin: 50px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(106, 255, 128);
+    color: rgb(21, 14, 9);
+}
+
+#results {
+    text-align: left;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.CSS">
+</head>
+
+<body>
+    <h1>My Website</h1>
+    <h2>About me</h2>
+    <p>
+        Hi My name is Yash Kalamkar.
+    </p>
+    <h2>
+        Article on web tech </h2>
+    <article>
+        Web Technology refers to the various tools and techniques that are utilized in the process of communication
+        between different types of devices over the Internet. A web browser is used to access web pages. Web
+        browsers can be defined as programs that display text, data, pictures, animation, and video on the Internet.
+        Hyperlinked resources on the World Wide Web can be accessed using software interfaces provided by Web
+        browsers.
+    </article>
+    <h2>
+        Quiz on the above topic
+    </h2>
+    <form id="quizForm">
+        <ol>
+            <li>
+                <p>What does Web Technology refer to?</p>
+                <label><input type="radio" name="q1" value="a"> a) Communication between devices over the
+                    Internet</label><br>
+                <label><input type="radio" name="q1" value="b"> b) Communication between devices using physical
+                    cables</label><br>
+                <label><input type="radio" name="q1" value="c"> c) Communication between devices using satellite
+                    signals</label><br>
+                <label><input type="radio" name="q1" value="d"> d) Communication between devices using Bluetooth
+                    technology</label><br>
+            </li>
+            <li>
+                <p>How are web pages accessed?</p>
+                <label><input type="radio" name="q2" value="a"> a) Through a web browser</label><br>
+                <label><input type="radio" name="q2" value="b"> b) Through a file manager</label><br>
+                <label><input type="radio" name="q2" value="c"> c) Through a media player</label><br>
+                <label><input type="radio" name="q2" value="d"> d) Through a word processor</label><br>
+            </li>
+            <li>
+                <p>What is the function of a web browser?</p>
+                <label><input type="radio" name="q3" value="a"> a) Display text and data only</label><br>
+                <label><input type="radio" name="q3" value="b"> b) Display text, data, pictures, animation, and
+                    video</label><br>
+                <label><input type="radio" name="q3" value="c"> c) Display pictures and videos only</label><br>
+                <label><input type="radio" name="q3" value="d"> d) Display animation and data only</label><br>
+            </li>
+            <li>
+                <p>What is a key feature of resources on the World Wide Web?</p>
+                <label><input type="radio" name="q4" value="a"> a) They are not accessible using web
+                    browsers</label><br>
+                <label><input type="radio" name="q4" value="b"> b) They are accessed using physical
+                    interfaces</label><br>
+                <label><input type="radio" name="q4" value="c"> c) They are accessed using software interfaces provided
+                    by web browsers</label><br>
+                <label><input type="radio" name="q4" value="d"> d) They are not hyperlinked</label><br>
+            </li>
+            <li>
+                <p>Which technology is commonly used for accessing hyperlinked resources on the World Wide Web?</p>
+                <label><input type="radio" name="q5" value="a"> a) FTP</label><br>
+                <label><input type="radio" name="q5" value="b"> b) HTTP</label><br>
+                <label><input type="radio" name="q5" value="c"> c) SMTP</label><br>
+                <label><input type="radio" name="q5" value="d"> d) TCP/IP</label><br>
+            </li>
+        </ol>
+        <center><button id="submit" type="button" onclick="submitQuiz()">Submit</button></center>
+    </form>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            const answers = {
+                q1: form.querySelector('input[name="q1"]:checked'),
+                q2: form.querySelector('input[name="q2"]:checked'),
+                q3: form.querySelector('input[name="q3"]:checked'),
+                q4: form.querySelector('input[name="q4"]:checked'),
+                q5: form.querySelector('input[name="q5"]:checked')
+            };
+            const correctAnswers = {
+                q1: 'a',
+                q2: 'a',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b'
+            };
+            let score = 0;
+            for (const question in answers) {
+                if (answers[question] && answers[question].value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+            const scorePercentage = (score / Object.keys(answers).length) * 100;
+            const resultsDiv = document.getElementById('results');
+            const scoreParagraph = document.getElementById('score');
+            scoreParagraph.textContent = `Your score: ${score} out of ${Object.keys(answers).length} (${scorePercentage}%)`;
+            if (scorePercentage == 100) {
+                alert("Congratulations you got fullmarks");
+            }
+            resultsDiv.style.display = 'block';
+        }
+    </script>
+    <h1 id="results" style="display: none;">The Score</h1>
+    <p id="score"></p>
+</body>
+
+</html>
